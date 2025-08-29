@@ -3,78 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTOVERALL - Centro de Treinamento</title>
+    <title>CTOVERALL - Centro de Treinamento Premium</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* Variáveis e Reset */
         :root {
             --primary: #0066cc;
+            --primary-dark: #004d99;
             --secondary: #ff6600;
+            --secondary-dark: #e65c00;
+            --accent: #00cc99;
             --dark: #1a1a1a;
+            --dark-light: #2d2d2d;
             --light: #f8f9fa;
+            --light-gray: #e9ecef;
             --gray: #6c757d;
             --success: #28a745;
             --danger: #dc3545;
             --peak: #ffcccc;
-            --quiet: #ccffcc;
+            --quiet: #d4edda;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
+            font-family: 'Open Sans', sans-serif;
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
         }
 
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         /* Header e Navegação */
         header {
             background-color: var(--dark);
-            color: white;
-            padding: 1rem 0;
+            color: var(--white);
+            padding: 0;
             position: sticky;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
         }
 
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 0;
         }
 
         .logo {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             line-height: 1;
         }
 
         .logo-main {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
             color: var(--secondary);
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .logo-sub {
-            font-size: 0.9rem;
-            color: white;
+            font-size: 0.8rem;
+            color: var(--white);
             letter-spacing: 3px;
-            margin-top: 5px;
+            margin-top: 3px;
+            font-weight: 400;
         }
 
         nav ul {
@@ -83,164 +103,275 @@
         }
 
         nav ul li {
-            margin-left: 1.5rem;
+            margin-left: 1.8rem;
+            position: relative;
         }
 
         nav ul li a {
-            color: white;
+            color: var(--white);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: var(--transition);
+            font-size: 1rem;
+            padding: 8px 0;
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: var(--transition);
         }
 
         nav ul li a:hover {
             color: var(--secondary);
         }
 
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            color: white;
-            font-size: 1.5rem;
+            color: var(--white);
+            font-size: 1.8rem;
             cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            color: var(--secondary);
         }
 
         /* Seções Gerais */
         section {
-            padding: 5rem 0;
+            padding: 80px 0;
+            position: relative;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 50px;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            border-radius: 2px;
         }
 
         .section-title p {
             color: var(--gray);
             font-size: 1.1rem;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 20px auto 0;
         }
 
         /* Banner Principal */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            color: white;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: var(--white);
             text-align: center;
-            padding: 8rem 0;
+            padding: 150px 0;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: fadeInDown 1s ease;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            animation: fadeInUp 1s ease;
         }
 
         .btn {
             display: inline-block;
             background-color: var(--secondary);
-            color: white;
-            padding: 0.8rem 2rem;
+            color: var(--white);
+            padding: 15px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
-            font-size: 1rem;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: var(--secondary-dark);
+            transition: var(--transition);
+            z-index: -1;
+            border-radius: 50px;
         }
 
         .btn:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover:before {
+            width: 100%;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-outline:before {
+            background-color: var(--secondary);
+        }
+
+        .btn-outline:hover {
+            color: var(--white);
         }
 
         /* Modalidades */
         .modalities {
-            background-color: white;
+            background-color: var(--white);
         }
 
         .modality-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
         .modality-card {
-            background-color: white;
-            border-radius: 10px;
+            background-color: var(--white);
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            height: 100%;
         }
 
         .modality-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
         .modality-img {
             height: 200px;
-            background-color: var(--primary);
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 3rem;
+            color: var(--white);
+            font-size: 3.5rem;
+            transition: var(--transition);
+        }
+
+        .modality-card:hover .modality-img {
+            background: linear-gradient(45deg, var(--secondary), var(--secondary-dark));
         }
 
         .modality-content {
-            padding: 1.5rem;
+            padding: 25px;
         }
 
         .modality-content h3 {
-            margin-bottom: 0.5rem;
+            margin-bottom: 12px;
             color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .modality-content p {
+            color: var(--gray);
+            margin-bottom: 0;
         }
 
         /* Horários */
         .schedule {
-            background-color: #f1f5f9;
+            background-color: var(--light-gray);
+        }
+
+        .schedule-container {
+            overflow-x: auto;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
         }
 
         .schedule-table {
             width: 100%;
             border-collapse: collapse;
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: var(--white);
+            min-width: 800px;
         }
 
         .schedule-table th, .schedule-table td {
-            padding: 1rem;
+            padding: 15px 10px;
             text-align: center;
-            border: 1px solid #ddd;
+            border: 1px solid var(--light-gray);
         }
 
         .schedule-table th {
             background-color: var(--primary);
-            color: white;
+            color: var(--white);
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .schedule-table tr:hover {
+            background-color: rgba(0, 0, 0, 0.03);
         }
 
         .peak-time {
             background-color: var(--peak);
+            font-weight: 600;
         }
 
         .quiet-time {
@@ -249,197 +380,341 @@
 
         /* Agendamento */
         .booking {
-            background-color: white;
+            background-color: var(--white);
         }
 
         .booking-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
         }
 
         .professionals {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            gap: 25px;
         }
 
         .professional-card {
-            background-color: white;
-            border-radius: 10px;
+            background-color: var(--white);
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .professional-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
         .professional-img {
-            height: 200px;
-            background-color: var(--gray);
+            height: 220px;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 3rem;
+            color: var(--white);
+            font-size: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .professional-img:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0,0,0,0.1), rgba(0,0,0,0.2));
         }
 
         .professional-info {
-            padding: 1.5rem;
+            padding: 20px;
         }
 
         .professional-info h3 {
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 8px;
+            font-size: 1.4rem;
         }
 
         .professional-info p {
             color: var(--gray);
-            margin-bottom: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .professional-info p:last-child {
+            margin-bottom: 0;
+            font-style: italic;
+        }
+
+        .booking-form {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
         }
 
         .form-control {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 14px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
             font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
         }
 
         /* Planos */
         .plans {
-            background-color: #f1f5f9;
+            background-color: var(--light-gray);
         }
 
         .plans-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .plan-card {
-            background-color: white;
-            border-radius: 10px;
+            background-color: var(--white);
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
             position: relative;
         }
 
         .plan-card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-card.featured {
+            transform: scale(1.03);
+            z-index: 2;
+            border: 2px solid var(--secondary);
+        }
+
+        .plan-card.featured:hover {
+            transform: scale(1.03) translateY(-10px);
+        }
+
+        .plan-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 5px 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transform: rotate(45deg);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .plan-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 1.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 30px 20px;
             text-align: center;
         }
 
         .plan-price {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            margin: 1rem 0;
+            margin: 15px 0;
+        }
+
+        .plan-price span {
+            font-size: 1rem;
+            font-weight: 400;
         }
 
         .plan-features {
-            padding: 1.5rem;
+            padding: 25px;
         }
 
         .plan-features ul {
             list-style: none;
-            margin-bottom: 2rem;
+            margin-bottom: 25px;
         }
 
         .plan-features ul li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: center;
         }
 
         .plan-features ul li:last-child {
             border-bottom: none;
         }
 
+        .plan-features ul li i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .plan-features ul li .fa-check {
+            color: var(--success);
+        }
+
+        .plan-features ul li .fa-times {
+            color: var(--danger);
+        }
+
         .plan-button {
             text-align: center;
-            padding: 0 1.5rem 1.5rem;
+            padding: 0 25px 25px;
         }
 
         /* Área do Aluno */
         .student-area {
-            background-color: white;
+            background-color: var(--white);
         }
 
         .student-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
         }
 
         .goal-form {
-            background-color: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .goal-form h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1.6rem;
         }
 
         .progress-container {
-            background-color: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .progress-container h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1.6rem;
+        }
+
+        .progress-section {
+            margin-bottom: 25px;
+        }
+
+        .progress-section h4 {
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-size: 1.1rem;
         }
 
         .progress-bar {
-            height: 20px;
-            background-color: #e9ecef;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
+            height: 22px;
+            background-color: var(--light-gray);
+            border-radius: 11px;
             overflow: hidden;
+            position: relative;
         }
 
         .progress-fill {
             height: 100%;
-            background-color: var(--success);
-            border-radius: 10px;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            border-radius: 11px;
             width: 0;
-            transition: width 1s ease-in-out;
+            transition: width 1.5s ease-in-out;
+            position: relative;
+        }
+
+        .progress-fill:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(-45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%, transparent);
+            background-size: 20px 20px;
+            animation: move 2s linear infinite;
+            border-radius: 11px;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
         }
 
         /* Dicas */
         .tips {
-            background-color: #f1f5f9;
+            background-color: var(--light-gray);
         }
 
         .carousel {
             position: relative;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            height: 300px;
         }
 
         .carousel-inner {
             display: flex;
             transition: transform 0.5s ease;
+            height: 100%;
         }
 
         .carousel-item {
             min-width: 100%;
-            padding: 3rem;
-            background-color: white;
+            padding: 40px;
+            background-color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
         }
 
         .carousel-item i {
-            font-size: 3rem;
+            font-size: 3.5rem;
             color: var(--primary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .carousel-item h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
         }
 
         .carousel-controls {
@@ -449,61 +724,119 @@
             display: flex;
             justify-content: space-between;
             transform: translateY(-50%);
+            padding: 0 15px;
         }
 
         .carousel-control {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            width: 40px;
-            height: 40px;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: var(--white);
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 1rem;
             cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-control:hover {
+            background-color: var(--primary);
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .carousel-indicator.active {
+            background-color: var(--white);
+            transform: scale(1.2);
         }
 
         /* Contador */
         .counter {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            color: white;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.75)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: var(--white);
             text-align: center;
-            padding: 5rem 0;
+            padding: 100px 0;
+            position: relative;
         }
 
         .counter-content {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .counter-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .counter-content p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
 
         .counter-number {
-            font-size: 4rem;
-            font-weight: 700;
+            font-size: 5rem;
+            font-weight: 800;
             color: var(--secondary);
-            margin: 1rem 0;
+            margin: 25px 0;
+            display: inline-block;
+            min-width: 150px;
         }
 
         /* Footer */
         footer {
             background-color: var(--dark);
-            color: white;
-            padding: 3rem 0;
+            color: var(--white);
+            padding: 70px 0 0;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 40px;
+            margin-bottom: 50px;
         }
 
         .footer-section h3 {
             color: var(--secondary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
         }
 
         .footer-section p, .footer-section li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 12px;
+            line-height: 1.6;
         }
 
         .footer-section ul {
@@ -511,44 +844,118 @@
         }
 
         .footer-section a {
-            color: white;
+            color: var(--white);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition);
         }
 
         .footer-section a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .footer-section i {
+            width: 20px;
+            margin-right: 10px;
             color: var(--secondary);
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+            gap: 15px;
+            margin-top: 20px;
         }
 
         .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             text-align: center;
-            line-height: 40px;
-            transition: background-color 0.3s;
+            line-height: 45px;
+            transition: var(--transition);
         }
 
         .social-links a:hover {
             background-color: var(--secondary);
+            transform: translateY(-5px);
         }
 
         .footer-bottom {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
+            padding: 25px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Animações */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes move {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 20px 20px;
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsividade */
+        @media (max-width: 992px) {
+            .booking-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+            
+            .student-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.3rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
@@ -562,7 +969,8 @@
                 left: 0;
                 width: 100%;
                 background-color: var(--dark);
-                padding: 1rem 0;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             }
 
             nav ul.show {
@@ -570,27 +978,89 @@
             }
 
             nav ul li {
-                margin: 0.5rem 1.5rem;
+                margin: 0;
+                text-align: center;
             }
 
+            nav ul li a {
+                display: block;
+                padding: 12px 20px;
+            }
+
+            .hero {
+                padding: 100px 0;
+            }
+            
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
             }
-
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
             .section-title h2 {
                 font-size: 2rem;
             }
-
-            .booking-content, .student-content {
+            
+            .modality-grid, .plans-grid {
                 grid-template-columns: 1fr;
             }
             
             .logo-main {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .logo-sub {
                 font-size: 0.7rem;
+            }
+            
+            .counter-number {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .carousel-item {
+                padding: 30px 20px;
+            }
+            
+            .carousel-item i {
+                font-size: 2.8rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-section h3:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
             }
         }
     </style>
@@ -636,7 +1106,7 @@
                 <p>Oferecemos diversas opções para você encontrar a atividade ideal para seu objetivo</p>
             </div>
             <div class="modality-grid">
-                <div class="modality-card">
+                <div class="modality-card animate-on-scroll">
                     <div class="modality-img">
                         <i class="fas fa-dumbbell"></i>
                     </div>
@@ -645,7 +1115,7 @@
                         <p>Equipamentos modernos e instrutores especializados para seu treino de força.</p>
                     </div>
                 </div>
-                <div class="modality-card">
+                <div class="modality-card animate-on-scroll">
                     <div class="modality-img">
                         <i class="fas fa-running"></i>
                     </div>
@@ -654,7 +1124,7 @@
                         <p>Treinos dinâmicos que melhoram sua capacidade funcional para atividades do dia a dia.</p>
                     </div>
                 </div>
-                <div class="modality-card">
+                <div class="modality-card animate-on-scroll">
                     <div class="modality-img">
                         <i class="fas fa-fire"></i>
                     </div>
@@ -663,7 +1133,7 @@
                         <p>Treinos de alta intensidade para melhorar condicionamento e resistência.</p>
                     </div>
                 </div>
-                <div class="modality-card">
+                <div class="modality-card animate-on-scroll">
                     <div class="modality-img">
                         <i class="fas fa-heart"></i>
                     </div>
@@ -683,7 +1153,7 @@
                 <h2>Horários de Funcionamento</h2>
                 <p>Planje seus treinos de acordo com nossos horários e fluxo de alunos</p>
             </div>
-            <div class="table-responsive">
+            <div class="schedule-container">
                 <table class="schedule-table">
                     <thead>
                         <tr>
@@ -793,7 +1263,7 @@
             </div>
             <div class="booking-content">
                 <div class="professionals">
-                    <div class="professional-card">
+                    <div class="professional-card animate-on-scroll">
                         <div class="professional-img">
                             <i class="fas fa-user"></i>
                         </div>
@@ -803,7 +1273,7 @@
                             <p>Especialista em treinamento funcional and emagrecimento</p>
                         </div>
                     </div>
-                    <div class="professional-card">
+                    <div class="professional-card animate-on-scroll">
                         <div class="professional-img">
                             <i class="fas fa-user"></i>
                         </div>
@@ -813,7 +1283,7 @@
                             <p>Especialista em hipertrofia e condicionamento físico</p>
                         </div>
                     </div>
-                    <div class="professional-card">
+                    <div class="professional-card animate-on-scroll">
                         <div class="professional-img">
                             <i class="fas fa-user"></i>
                         </div>
@@ -823,7 +1293,7 @@
                             <p>Especialista em nutrição esportiva e reeducação alimentar</p>
                         </div>
                     </div>
-                    <div class="professional-card">
+                    <div class="professional-card animate-on-scroll">
                         <div class="professional-img">
                             <i class="fas fa-user"></i>
                         </div>
@@ -834,7 +1304,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="booking-form">
+                <div class="booking-form animate-on-scroll">
                     <form id="appointment-form">
                         <div class="form-group">
                             <label for="name">Nome Completo</label>
@@ -881,7 +1351,7 @@
                 <p>Escolha o plano que melhor se adapta aos seus objetivos e orçamento</p>
             </div>
             <div class="plans-grid">
-                <div class="plan-card">
+                <div class="plan-card animate-on-scroll">
                     <div class="plan-header">
                         <h3>Plano Básico</h3>
                         <div class="plan-price">R$ 89,90<span>/mês</span></div>
@@ -896,10 +1366,11 @@
                         </ul>
                     </div>
                     <div class="plan-button">
-                        <a href="#" class="btn">Escolher plano</a>
+                        <a href="#" class="btn btn-outline">Escolher plano</a>
                     </div>
                 </div>
-                <div class="plan-card">
+                <div class="plan-card featured animate-on-scroll">
+                    <div class="plan-badge">Popular</div>
                     <div class="plan-header">
                         <h3>Plano Completo</h3>
                         <div class="plan-price">R$ 129,90<span>/mês</span></div>
@@ -917,7 +1388,7 @@
                         <a href="#" class="btn">Escolher plano</a>
                     </div>
                 </div>
-                <div class="plan-card">
+                <div class="plan-card animate-on-scroll">
                     <div class="plan-header">
                         <h3>Plano Premium</h3>
                         <div class="plan-price">R$ 199,90<span>/mês</span></div>
@@ -932,7 +1403,7 @@
                         </ul>
                     </div>
                     <div class="plan-button">
-                        <a href="#" class="btn">Escolher plano</a>
+                        <a href="#" class="btn btn-outline">Escolher plano</a>
                     </div>
                 </div>
             </div>
@@ -947,7 +1418,7 @@
                 <p>Acompanhe seu progresso e defina suas metas</p>
             </div>
             <div class="student-content">
-                <div class="goal-form">
+                <div class="goal-form animate-on-scroll">
                     <h3>Defina sua Meta</h3>
                     <form id="goal-form">
                         <div class="form-group">
@@ -975,30 +1446,34 @@
                         <button type="submit" class="btn">Definir Meta</button>
                     </form>
                 </div>
-                <div class="progress-container">
+                <div class="progress-container animate-on-scroll">
                     <h3>Seu Progresso</h3>
                     <div class="progress-section">
                         <h4>Força</h4>
                         <div class="progress-bar">
                             <div class="progress-fill" data-width="75"></div>
+                            <div class="progress-text">75%</div>
                         </div>
                     </div>
                     <div class="progress-section">
                         <h4>Resistência</h4>
                         <div class="progress-bar">
                             <div class="progress-fill" data-width="60"></div>
+                            <div class="progress-text">60%</div>
                         </div>
                     </div>
                     <div class="progress-section">
                         <h4>Flexibilidade</h4>
                         <div class="progress-bar">
                             <div class="progress-fill" data-width="40"></div>
+                            <div class="progress-text">40%</div>
                         </div>
                     </div>
                     <div class="progress-section">
                         <h4>Percentual de Gordura</h4>
                         <div class="progress-bar">
                             <div class="progress-fill" data-width="65"></div>
+                            <div class="progress-text">65%</div>
                         </div>
                     </div>
                 </div>
@@ -1044,6 +1519,12 @@
                         <i class="fas fa-chevron-right"></i>
                     </div>
                 </div>
+                <div class="carousel-indicators">
+                    <div class="carousel-indicator active"></div>
+                    <div class="carousel-indicator"></div>
+                    <div class="carousel-indicator"></div>
+                    <div class="carousel-indicator"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -1076,9 +1557,9 @@
             </div>
             <div class="footer-section">
                 <h3>Horário de Funcionamento</h3>
-                <p>Segunda a Sexta: 6h às 22h</p>
-                <p>Sábado: 8h às 18h</p>
-                <p>Domingo: Fechado</p>
+                <p><i class="far fa-clock"></i> Segunda a Sexta: 6h às 22h</p>
+                <p><i class="far fa-clock"></i> Sábado: 8h às 18h</p>
+                <p><i class="far fa-clock"></i> Domingo: Fechado</p>
             </div>
             <div class="footer-section">
                 <h3>Contato</h3>
@@ -1099,6 +1580,14 @@
         
         menuBtn.addEventListener('click', () => {
             navMenu.classList.toggle('show');
+        });
+
+        // Fechar menu ao clicar em um link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+            });
         });
 
         // Formulário de Agendamento
@@ -1147,15 +1636,31 @@
             
             progressBars.forEach(bar => {
                 const width = bar.getAttribute('data-width');
-                bar.style.width = width + '%';
+                setTimeout(() => {
+                    bar.style.width = width + '%';
+                }, 300);
             });
         });
 
         // Carrossel de Dicas
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-item');
+        const indicators = document.querySelectorAll('.carousel-indicator');
         const totalSlides = slides.length;
         const carouselInner = document.querySelector('.carousel-inner');
+        
+        function updateCarousel() {
+            carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Atualizar indicadores
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
         
         document.querySelector('.carousel-control.next').addEventListener('click', () => {
             currentSlide = (currentSlide + 1) % totalSlides;
@@ -1167,9 +1672,13 @@
             updateCarousel();
         });
         
-        function updateCarousel() {
-            carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
+        // Adicionar eventos aos indicadores
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                updateCarousel();
+            });
+        });
 
         // Auto-rotacionar o carrossel
         setInterval(() => {
@@ -1194,6 +1703,24 @@
             }
             counterElement.textContent = counter;
         }, 30);
+
+        // Animação ao scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', animateOnScroll);
+        // Executar uma vez ao carregar a página
+        animateOnScroll();
     </script>
 </body>
 </html>

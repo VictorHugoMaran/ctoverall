@@ -1,53 +1,48 @@
-CTOVERALL - Centro de Treinamento
-Site institucional moderno e responsivo para academia, desenvolvido com HTML, CSS e JavaScript puro.
+# CTOVERALL - Site de Academia
 
-📋 Sobre o Projeto
-O CTOVERALL é um site completo para academia que apresenta todas as informações necessárias para potenciais alunos e membros. Desenvolvido com foco em design responsivo e experiência do usuário, o site oferece desde informações sobre modalidades até sistema de agendamento com profissionais.
+Site simples e responsivo para academia CTOVERALL, desenvolvido com HTML, CSS e JavaScript.
 
-✨ Funcionalidades
-Página Inicial Atraente: Banner com slogan motivacional e call-to-action
+## 📋 Sobre
 
-Modalidades: Apresentação das atividades oferecidas (musculação, funcional, crossfit, pilates)
+Site institucional para academia com informações sobre modalidades, horários, planos e agendamentos.
 
-Horários Interativos: Tabela com indicação visual de horários de pico e tranquilos
+## ✨ Funcionalidades
 
-Sistema de Agendamento: Formulário para agendar horários com profissionais
+- Página inicial com banner e call-to-action
+- Seção de modalidades oferecidas
+- Tabela de horários de funcionamento
+- Formulário de agendamento
+- Planos disponíveis
+- Área do aluno com progresso
+- Design responsivo para mobile
 
-Planos e Serviços: Cards interativos com os planos disponíveis
+## 🛠️ Tecnologias
 
-Área do Aluno: Controle de metas e acompanhamento de progresso
+- HTML5
+- CSS3
+- JavaScript
 
-Carrossel de Dicas: Dicas rotativas sobre fitness e nutrição
+## 📱 Responsivo
 
-Contador de Dias: Contador que mostra há quantos dias a academia está em funcionamento
+Adaptado para:
+- Celulares
+- Tablets
+- Desktop
 
-🛠️ Tecnologias Utilizadas
-HTML5: Estrutura semântica do site
+## 🚀 Como usar
 
-CSS3: Estilização moderna com Flexbox, Grid e variáveis CSS
+1. Faça download dos arquivos
+2. Abra o `index.html` no navegador
+3. Navegue pelo menu
 
-JavaScript: Funcionalidades interativas e validações
+## 📞 Contato
 
-Font Awesome: Ícones para melhorar a interface
+Altere as informações de contato no rodapé do site.
 
-Design Responsivo: Adaptação para todos os dispositivos
+---
 
-🎨 Design Features
-Paleta de cores moderna com azul (#0066cc) e laranja (#ff6600)
+Desenvolvido para CTOVERALL Academia
 
-Animações suaves em hover e transições
+## 🏷️ Tags
 
-Layout em grid para melhor organização do conteúdo
-
-Tipografia clara e hierarquia visual bem definida
-
-Cards com efeitos de elevação e sombras
-
-📱 Responsividade
-O site foi desenvolvido com foco em mobile-first e se adapta perfeitamente a:
-
-Dispositivos móveis (smartphones)
-
-Tablets
-
-Desktops e notebooks
+`html` `css` `javascript` `academia` `fitness` `site-responsivo` `ctoverall`

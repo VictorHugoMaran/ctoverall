@@ -35,10 +35,6 @@ Adaptado para:
 2. Abra o `index.html` no navegador
 3. Navegue pelo menu
 
-## 📞 Contato
-
-Altere as informações de contato no rodapé do site.
-
 ---
 
 Desenvolvido para CTOVERALL Academia

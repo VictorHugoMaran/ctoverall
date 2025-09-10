@@ -91,6 +91,8 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            padding: 0.5rem 0;
+            display: block;
         }
 
         nav ul li a:hover {
@@ -104,27 +106,28 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
+            z-index: 101;
         }
 
         /* Seções Gerais */
         section {
-            padding: 5rem 0;
+            padding: 3rem 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--primary);
             margin-bottom: 1rem;
         }
 
         .section-title p {
             color: var(--gray);
-            font-size: 1.1rem;
+            font-size: 1rem;
             max-width: 700px;
             margin: 0 auto;
         }
@@ -134,7 +137,7 @@
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 8rem 0;
+            padding: 6rem 0;
         }
 
         .hero-content {
@@ -143,12 +146,12 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 2rem;
         }
 
@@ -180,7 +183,7 @@
         .modality-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .modality-card {
@@ -192,17 +195,17 @@
         }
 
         .modality-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
 
         .modality-img {
-            height: 200px;
+            height: 180px;
             background-color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
 
         .modality-content {
@@ -219,17 +222,21 @@
             background-color: #f1f5f9;
         }
 
+        .table-container {
+            overflow-x: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
         .schedule-table {
             width: 100%;
             border-collapse: collapse;
             background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-width: 800px;
         }
 
         .schedule-table th, .schedule-table td {
-            padding: 1rem;
+            padding: 0.8rem;
             text-align: center;
             border: 1px solid #ddd;
         }
@@ -255,7 +262,7 @@
         .booking-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            gap: 2rem;
         }
 
         .professionals {
@@ -272,13 +279,13 @@
         }
 
         .professional-img {
-            height: 200px;
+            height: 180px;
             background-color: var(--gray);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
 
         .professional-info {
@@ -320,8 +327,8 @@
 
         .plans-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
         .plan-card {
@@ -334,7 +341,7 @@
         }
 
         .plan-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
 
         .plan-header {
@@ -345,7 +352,7 @@
         }
 
         .plan-price {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
             margin: 1rem 0;
         }
@@ -381,26 +388,24 @@
         .student-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            gap: 2rem;
         }
 
-        .goal-form {
+        .goal-form, .progress-container {
             background-color: #f8f9fa;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 10px;
         }
 
-        .progress-container {
-            background-color: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
+        .progress-section {
+            margin-bottom: 1.5rem;
         }
 
         .progress-bar {
             height: 20px;
             background-color: #e9ecef;
             border-radius: 10px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
             overflow: hidden;
         }
 
@@ -431,15 +436,15 @@
 
         .carousel-item {
             min-width: 100%;
-            padding: 3rem;
+            padding: 2rem;
             background-color: white;
             text-align: center;
         }
 
         .carousel-item i {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .carousel-controls {
@@ -454,14 +459,15 @@
         .carousel-control {
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 1rem;
+            margin: 0 0.5rem;
             cursor: pointer;
+            z-index: 10;
         }
 
         /* Contador */
@@ -469,7 +475,7 @@
             background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
             color: white;
             text-align: center;
-            padding: 5rem 0;
+            padding: 4rem 0;
         }
 
         .counter-content {
@@ -478,7 +484,7 @@
         }
 
         .counter-number {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 700;
             color: var(--secondary);
             margin: 1rem 0;
@@ -488,7 +494,7 @@
         footer {
             background-color: var(--dark);
             color: white;
-            padding: 3rem 0;
+            padding: 2rem 0;
         }
 
         .footer-content {
@@ -499,7 +505,7 @@
 
         .footer-section h3 {
             color: var(--secondary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .footer-section p, .footer-section li {
@@ -522,18 +528,18 @@
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             margin-top: 1rem;
         }
 
         .social-links a {
             display: inline-block;
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             text-align: center;
-            line-height: 40px;
+            line-height: 35px;
             transition: background-color 0.3s;
         }
 
@@ -543,12 +549,35 @@
 
         .footer-bottom {
             text-align: center;
-            margin-top: 3rem;
+            margin-top: 2rem;
             padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Responsividade */
+        /* Responsividade - Tablet */
+        @media (max-width: 1024px) {
+            .hero {
+                padding: 5rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .logo-main {
+                font-size: 2rem;
+            }
+            
+            .logo-sub {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Responsividade - Mobile */
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
@@ -557,40 +586,125 @@
             nav ul {
                 display: none;
                 flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
                 background-color: var(--dark);
-                padding: 1rem 0;
+                padding: 5rem 2rem 2rem;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
             }
 
             nav ul.show {
                 display: flex;
+                right: 0;
             }
 
             nav ul li {
-                margin: 0.5rem 1.5rem;
+                margin: 0.8rem 0;
+            }
+            
+            .close-menu {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                background: none;
+                border: none;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
             }
 
+            .hero {
+                padding: 4rem 0;
+            }
+            
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 1.8rem;
             }
-
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
             .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            section {
+                padding: 2.5rem 0;
+            }
+            
+            .modality-img, .professional-img {
+                height: 150px;
                 font-size: 2rem;
             }
-
-            .booking-content, .student-content {
-                grid-template-columns: 1fr;
+            
+            .carousel-item {
+                padding: 1.5rem;
+            }
+            
+            .carousel-item i {
+                font-size: 2rem;
+            }
+            
+            .counter {
+                padding: 3rem 0;
+            }
+            
+            .counter-number {
+                font-size: 2.5rem;
             }
             
             .logo-main {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .logo-sub {
                 font-size: 0.7rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.4rem;
+            }
+            
+            .modality-grid, .plans-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .booking-content, .student-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .professionals {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-main {
+                font-size: 1.5rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .carousel-control {
+                width: 30px;
+                height: 30px;
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -607,6 +721,7 @@
                 <i class="fas fa-bars"></i>
             </button>
             <nav>
+                <button class="close-menu"><i class="fas fa-times"></i></button>
                 <ul>
                     <li><a href="#home">Início</a></li>
                     <li><a href="#modalities">Modalidades</a></li>
@@ -683,7 +798,7 @@
                 <h2>Horários de Funcionamento</h2>
                 <p>Planje seus treinos de acordo com nossos horários e fluxo de alunos</p>
             </div>
-            <div class="table-responsive">
+            <div class="table-container">
                 <table class="schedule-table">
                     <thead>
                         <tr>
@@ -1095,10 +1210,26 @@
     <script>
         // Menu Mobile
         const menuBtn = document.querySelector('.mobile-menu-btn');
+        const closeBtn = document.querySelector('.close-menu');
         const navMenu = document.querySelector('nav ul');
         
         menuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('show');
+            navMenu.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeBtn.addEventListener('click', () => {
+            navMenu.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Fechar menu ao clicar em um link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                document.body.style.overflow = 'auto';
+            });
         });
 
         // Formulário de Agendamento
@@ -1171,6 +1302,37 @@
             carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
         }
 
+        // Swipe para o carrossel em dispositivos móveis
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        const carousel = document.querySelector('.carousel');
+        
+        carousel.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        carousel.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+        
+        function handleSwipe() {
+            const diff = touchStartX - touchEndX;
+            
+            // Limite de 50px para considerar como swipe
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    // Swipe para a esquerda - próxima imagem
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                } else {
+                    // Swipe para a direita - imagem anterior
+                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                }
+                updateCarousel();
+            }
+        }
+
         // Auto-rotacionar o carrossel
         setInterval(() => {
             currentSlide = (currentSlide + 1) % totalSlides;
@@ -1192,7 +1354,7 @@
                 counter = diffDays;
                 clearInterval(interval);
             }
-            counterElement.textContent = counter;
+            counterElement.textContent = counter.toLocaleString('pt-BR');
         }, 30);
     </script>
 </body>

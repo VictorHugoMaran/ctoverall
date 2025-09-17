@@ -21,3 +21,18 @@ O objetivo é apresentar um modelo inicial de como poderia ser a página princip
 - **HTML5**
 - **CSS3 (estilização interna)**
 - **JavaScript (futuro - não implementado neste protótipo)**
+
+---
+## 📁 Estrutura do Projeto
+```
+ctoverall/
+│├── index.html          # Página principal
+│├── styles.css         # Arquivo de estilos
+│├── images/            # Imagens utilizadas no site
+│   ├── logo.png
+│   ├── hero-bg.jpg
+│   ├── gallery1.jpg
+│   ├── gallery2.jpg
+│   └── gallery3.jpg
+└── README.md           # Documentação do projeto
+```

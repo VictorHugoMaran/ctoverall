@@ -135,6 +135,97 @@
     font-weight: bold;
     color: #111;
   }
+
+   /* Estilo da calculadora de Gasto Calórico */
+  .calorias-container {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .calorias-container p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #555;
+  }
+  .calorias-container input, 
+  .calorias-container select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  .calorias-container button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #f2c200, #ffda44);
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: 0.3s;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .calorias-container button:hover {
+    background: #111;
+    color: #fff;
+  }
+  .resultado-calorias {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #111;
+  }
+
+
+  /* Estilo da seção Reservar Consulta */
+  .consulta-container {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .consulta-container h2 {
+    margin-bottom: 20px;
+  }
+  .consulta-container input,
+  .consulta-container select,
+  .consulta-container textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  .consulta-container button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(90deg, #f2c200, #ffda44);
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: 0.3s;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .consulta-container button:hover {
+    background: #111;
+    color: #fff;
+  }
+
   </style>
 </head>
 <body>
@@ -142,12 +233,15 @@
   <header>
     <h1>CTOVERALL</h1>
     <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#planos">Planos</a>
-      <a href="#galeria">Galeria</a>
-      <a href="#imc">IMC</a>
-      <a href="#contato">Contato</a>
-    </nav>
+  <a href="#sobre">Sobre</a>
+  <a href="#planos">Planos</a>
+  <a href="#galeria">Galeria</a>
+  <a href="#imc">IMC</a>
+  <a href="#calorias">Gasto Calórico</a>
+  <a href="#consulta">Reservar Consulta</a>
+  <a href="#contato">Contato</a>
+</nav>
+
   </header>
 
   <section class="hero">
@@ -195,6 +289,25 @@
     </div>
   </section>
 
+  <section id="calorias">
+  <h2>Calculadora de Gasto Calórico</h2>
+  <div class="calorias-container">
+    <p>Veja quantas calorias você gasta em diferentes atividades</p>
+    <input type="number" id="pesoCalorias" placeholder="Seu peso (kg)" required>
+    <input type="number" id="tempoCalorias" placeholder="Tempo de atividade (min)" required>
+    <select id="atividade">
+      <option value="8">Corrida (8 METs)</option>
+      <option value="6">Musculação (6 METs)</option>
+      <option value="7">Bicicleta (7 METs)</option>
+      <option value="10">HIIT (10 METs)</option>
+      <option value="3.5">Caminhada (3.5 METs)</option>
+    </select>
+    <button onclick="calcularCalorias()">Calcular Gasto Calórico</button>
+    <div id="resultadoCalorias" class="resultado-calorias"></div>
+  </div>
+</section>
+
+
   <!-- CALCULADORA DE IMC -->
   <section id="imc">
   <h2>Calculadora de IMC</h2>
@@ -206,6 +319,32 @@
     <div id="resultado" class="resultado"></div>
   </div>
 </section>
+
+
+  <section id="consulta">
+  <div class="consulta-container">
+    <h2>Reservar Consulta</h2>
+    <form id="consultaForm">
+      <input type="text" id="nomeConsulta" placeholder="Seu nome" required>
+      <input type="email" id="emailConsulta" placeholder="Seu e-mail" required>
+      <input type="tel" id="telefoneConsulta" placeholder="Seu telefone (WhatsApp)" required>
+      <input type="date" id="dataConsulta" required>
+      <select id="horaConsulta" required>
+        <option value="">Selecione um horário</option>
+        <option>08:00</option>
+        <option>09:00</option>
+        <option>10:00</option>
+        <option>14:00</option>
+        <option>15:00</option>
+        <option>16:00</option>
+      </select>
+      <textarea id="mensagemConsulta" placeholder="Mensagem (opcional)"></textarea>
+      <button type="submit">Enviar Pedido de Consulta</button>
+    </form>
+    <div id="respostaConsulta"></div>
+  </div>
+</section>
+
 
   <section id="contato">
     <h2>Fale Conosco</h2>
@@ -251,6 +390,45 @@
       document.getElementById("resultado").innerHTML =
         `Seu IMC é <strong>${imc.toFixed(2)}</strong> (${classificacao}).`;
     }
+
+      function calcularCalorias() {
+    const peso = parseFloat(document.getElementById("pesoCalorias").value);
+    const tempo = parseFloat(document.getElementById("tempoCalorias").value);
+    const met = parseFloat(document.getElementById("atividade").value);
+
+    if (!peso || !tempo || !met) {
+      document.getElementById("resultadoCalorias").innerHTML = "Preencha todos os campos.";
+      return;
+    }
+
+    // Fórmula: Calorias = MET × peso (kg) × tempo (h)
+    const horas = tempo / 60;
+    const calorias = met * peso * horas;
+
+    document.getElementById("resultadoCalorias").innerHTML =
+      `Você gastou aproximadamente <strong>${calorias.toFixed(1)} kcal</strong> nessa atividade.`;
+  }
+
+   document.getElementById("consultaForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nome = document.getElementById("nomeConsulta").value;
+    const email = document.getElementById("emailConsulta").value;
+    const telefone = document.getElementById("telefoneConsulta").value;
+    const data = document.getElementById("dataConsulta").value;
+    const hora = document.getElementById("horaConsulta").value;
+    const mensagem = document.getElementById("mensagemConsulta").value;
+
+    // Aqui você pode integrar com e-mail ou WhatsApp
+    const linkWhats = `https://wa.me/55SEUNUMERO?text=Olá, meu nome é ${nome}. Quero agendar uma consulta em ${data} às ${hora}. Telefone: ${telefone}. Email: ${email}. Observações: ${mensagem}`;
+    
+    document.getElementById("respostaConsulta").innerHTML = `
+      <p>✅ Pedido enviado! Clique abaixo para confirmar no WhatsApp:</p>
+      <a href="${linkWhats}" target="_blank" style="display:inline-block;margin-top:10px;padding:10px 20px;background:#25D366;color:#fff;border-radius:8px;text-decoration:none;font-weight:bold;">Confirmar no WhatsApp</a>
+    `;
+  });
+
+
   </script>
 
 </body>

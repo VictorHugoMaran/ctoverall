@@ -11,9 +11,12 @@ O objetivo é apresentar um modelo inicial de como poderia ser a página princip
 - **Seção Sobre** apresentando a academia
 - **Planos de treino** em formato de cards
 - **Galeria de imagens** com efeito hover
-- **Formulário de contato**
+- **Calculadora de IMC** interativa
+- **Calculadora de Gasto Calórico** personalizada
+- **Reservar Consulta** com integração ao WhatsApp
+- **Formulário de contato** funcional
 - **Rodapé** simples com direitos autorais
-- Design responsivo básico, com estilo moderno e minimalista
+- Design **responsivo** básico, com estilo moderno e minimalista
 
 ---
 

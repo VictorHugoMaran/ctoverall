@@ -23,5 +23,5 @@ O objetivo é apresentar um modelo inicial de como poderia ser a página princip
 ## 🖥️ Tecnologias Utilizadas
 - **HTML5**
 - **CSS3 (estilização interna)**
-- **JavaScript
+- **JavaScript**
 
